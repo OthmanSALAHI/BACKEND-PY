@@ -1,0 +1,49 @@
+import random
+
+def roll():
+    max_val = 6
+    min_val = 1
+    rolle = random.randint(min_val,max_val)
+
+    return rolle
+
+while True:
+    players = input("enter number players (2 - 4) : ")
+    if players.isdigit():
+        players = int(players)
+        if 2 <= players <= 4:
+            break;
+        else:
+            print("enter between 2 and 4 \n")
+    else:
+        print("invalid input !")
+
+max_score = 50
+player_scores = [0 for _ in range(players)]
+
+while max(player_scores) < max_score:
+    
+    # print(f"your global score is {player_scores[player_index]}\n")
+    for player_index in range((players)):
+        print(f"the player {player_index + 1} is rolling now !\n")
+        current_score = 0
+        while True:
+            round = input("you wanna rolle (y) ? ")
+            if round.lower() != "y":
+                break
+            Result = roll()
+            if Result == 1:
+                print("\nbad luck haha ! you turned 1 !!\n")
+                current_score = 0
+                break
+            else:
+                current_score += Result
+                print(f"you just rolled {Result}!\n")
+                print(f"your score now is {current_score}")
+                
+        player_scores[player_index] += current_score
+        print(f"your global score is {player_scores[player_index]}")
+        
+max_scores = max(player_scores)
+win_idx = player_scores.index(max_scores)
+print(f"the winner is the player {win_idx + 1}")
