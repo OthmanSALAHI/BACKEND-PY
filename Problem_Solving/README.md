@@ -7,10 +7,10 @@ Given two binary strings ``a`` and ``b``, return their _sum_ as a _binary string
     ```
     a = "11" 
     b = "1"
-    ```
+    
 ##### output:
 
-    ```python
+    
     result = "100" 
     ```
 
