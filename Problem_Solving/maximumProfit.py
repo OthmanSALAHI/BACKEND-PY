@@ -1,42 +1,43 @@
-"""def maxPrice(self, prices):
-        if not prices:
-            return 0
-        max_price = prices[0]
-        for price in prices:
-            if price > max_price:
-                max_price = price
-        return max_price
-    def minPrice(self, prices):
-        if not prices:
-            return 0
-        min_price = prices[0]
-        for price in prices:
-            if price < min_price:
-                min_price = price
-        return min_price"""
         
 
 class Solution(object):
-    def maxProfit(self, prices):
+    def maxPrice(self, prices):
+            if not prices:
+                return 0
+            max_price = prices[0]
+            for price in prices:
+                if price > max_price:
+                    max_price = price
+            return max_price
+    def minPrice(self, prices):
+            if not prices:
+                return 0
+            min_price = prices[0]
+            for price in prices:
+                if price < min_price:
+                    min_price = price
+            return min_price
+    def minimum(self,curr,prev):
+        if curr < prev:
+            prev = curr
+        return prev
+
+    def maxprofit(self,prices):
         if not prices:
-            return 0
+            return None
 
-        max_profit = 0
-        min_price = prices[0]
-
+        maxProfit = 0
+        mini = prices[0]
         for price in prices:
-            if price < min_price:
-                min_price = price
-            else:
-                max_profit = max(max_profit, price - min_price)
-
-        return max_profit
+            mini = self.minimum(price,mini)
+            maxProfit = max(maxProfit , price - mini)
+        return maxProfit
 
 def main():
-    week = [9,9,9,9,9,4]
+    week = [9,9,9,9,1,4]
     solution = Solution()
 
-    profit = solution.maxProfit(week)
+    profit = solution.maxprofit(week)
     maxPrice = solution.maxPrice(week)
     minPrice = solution.minPrice(week)
 
