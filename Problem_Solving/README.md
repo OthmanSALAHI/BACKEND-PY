@@ -2,13 +2,13 @@
 ### 1-Problem
 Given two binary strings ``a`` and ``b``, return their _sum_ as a _binary string_.
 #### Example 1:
-    input:
-
-    ```python
+##### input:
+    
+    ```
     a = "11" 
     b = "1"
     ```
-    output:
+##### output:
 
     ```python
     result = "100" 
