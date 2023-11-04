@@ -4,15 +4,13 @@ Given two binary strings ``a`` and ``b``, return their _sum_ as a _binary string
 #### Example 1:
 ##### input:
     
-    ```
     a = "11" 
     b = "1"
-    
+
 ##### output:
 
     
     result = "100" 
-    ```
 
 
 ### 1-Solution
