@@ -6,7 +6,7 @@ api_key = "5d6f9927daa5c67338d1fb97b7fad348"
 
 
 def kalvinToC_F(kalvin):
-    cels = kalvin - 275.15
+    cels = kalvin - 273.15
     fahr = cels * (9 / 5) + 32
     return cels , fahr
  
@@ -21,4 +21,4 @@ celsuis , fahrenhit = kalvinToC_F(kalvinTemp)
 
 humidity = response["main"]["humidity"]
 
-print(f"the weather in {city} is {celsuis} °C {fahrenhit} °F\n The humidity is {humidity}")
+print(f"the weather in {city} is {celsuis:.2f} °C {fahrenhit:.2f} °F\n The humidity is {humidity}%")
