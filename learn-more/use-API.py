@@ -15,5 +15,10 @@ city = input("enter the city you want :")
 url = BASE_URL + "appid=" + api_key + "&q=" + city
 response = requests.get(url).json()
 
-# kalvinTemp = response["main"]["temp"]
-print(response)
+kalvinTemp = response["main"]["temp"]
+
+celsuis , fahrenhit = kalvinToC_F(kalvinTemp)
+
+humidity = response["main"]["humidity"]
+
+print(f"the weather in {city} is {celsuis} °C {fahrenhit} °F\n The humidity is {humidity}")
