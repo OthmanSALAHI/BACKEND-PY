@@ -2,6 +2,8 @@ import requests
 import datetime as dt
 
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
+
+#print your api here from www.openweathermap.org
 api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 #changing kalvin to celisus and fehrenhit
