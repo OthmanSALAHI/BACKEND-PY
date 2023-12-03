@@ -1,5 +1,7 @@
+#!/usr/bin/python3
 from pytube import YouTube
 import os
+from sys import argv 
 
 def download_video(path, link):
     try:
@@ -20,8 +22,10 @@ def download_video(path, link):
         print(f"An error has occurred: {e}")
 
 if __name__ == "__main__":
-    path = input("Enter the desired path for the download: ")
-    video_url = input("Enter the YouTube video URL: ")
-
-    download_video(path, video_url)
+    if len(argv) < 3:
+        print("usage : ./tube.py <PATH> <link> ")
+    else:
+        path = argv[1]
+        video_url = argv[2]
+        download_video(path, video_url)
 
