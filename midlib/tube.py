@@ -1,7 +1,27 @@
 from pytube import YouTube
-from sys import argv
+import os
 
-link = argv[1]
-yt = YouTube(link)
-print("title : ",yt.title)
-print("views : ", yt.views)
+def download_video(path, link):
+    try:
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        youtube_object = YouTube(link)
+        video_stream = youtube_object.streams.get_highest_resolution()
+
+        video_title = youtube_object.title
+        file_name = f"{video_title}.mp4"
+        file_path = os.path.join(path, file_name)
+
+        video_stream.download(output_path=path, filename=file_name)
+
+        print(f"Download completed successfully. Video saved at: {file_path}")
+    except Exception as e:
+        print(f"An error has occurred: {e}")
+
+if __name__ == "__main__":
+    path = input("Enter the desired path for the download: ")
+    video_url = input("Enter the YouTube video URL: ")
+
+    download_video(path, video_url)
+
